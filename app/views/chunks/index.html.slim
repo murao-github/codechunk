@@ -1,0 +1,39 @@
+p#notice
+  = notice
+h1
+  | Chunks
+table
+  thead
+    tr
+      th
+        | User
+      th
+        | Title
+      th
+        | Code
+      th
+        | Lang
+      th
+        | Desc
+      th[colspan="3"]
+  tbody
+    - @chunks.each do |chunk|
+      tr
+        td
+          = chunk.user_id
+        td
+          = chunk.title
+        td
+          = chunk.code
+        td
+          = chunk.lang
+        td
+          = chunk.desc
+        td
+          = link_to 'Show', chunk
+        td
+          = link_to 'Edit', edit_chunk_path(chunk)
+        td
+          = link_to 'Destroy', chunk, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Chunk', new_chunk_path

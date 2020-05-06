@@ -1,0 +1,25 @@
+p#notice
+  = notice
+p
+  strong
+    | User:
+  = @chunk.user_id
+p
+  strong
+    | Title:
+  = @chunk.title
+p
+  strong
+    | Code:
+  = @chunk.code
+p
+  strong
+    | Lang:
+  = @chunk.lang
+p
+  strong
+    | Desc:
+  = @chunk.desc
+= link_to 'Edit', edit_chunk_path(@chunk)
+|  | 
+= link_to 'Back', chunks_path
