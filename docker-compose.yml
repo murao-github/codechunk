@@ -12,9 +12,12 @@ services:
 
   web:
     build: .
+    environment:
+      - SPROCKETS_CACHE=/cache
     # Copy project source to codechunk
     volumes:
       - .:/codechunk
+      - cache:/cache
     # Forward port 3000
     ports:
       - "3000:3000"
@@ -22,7 +25,10 @@ services:
     tty: true
     networks:
       - backend
-  
+
+volumes:
+  cache:
+
 networks:
   backend:
     driver: bridge
