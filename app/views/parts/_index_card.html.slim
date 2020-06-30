@@ -1,0 +1,26 @@
+.card.chunk.col-7.my-2.px-0
+  / .card-header.bg-info
+  .card-body.p-2
+    .header.mb-2
+      = image_tag 'face_icon/avataaars_1.png', class: 'user_icon'
+      span.user_name.font-weight-bold
+        | ジョン
+      small.user_id.ml-1 
+        | @john
+    .card-pre.hljs.text-light
+      .pre-code-header
+        span.file-name.font-weight-bold style="color: #e6e1dc;"
+          | container-up.sh
+        span.badge.badge-pill.text-light.lang-badge style="margin: 0 1em; background-color: #d2b51c;"
+          = chunk.lang
+      pre.hljs.text-light.m-0
+        code class="hljs #{chunk.lang.downcase()}"
+          = chunk.code
+    p.mt-1.mb-0
+      = chunk.desc
+  .card-footer.align-light
+    span
+      | 投稿：
+      = chunk.created_at.strftime("%m/%d(%u) %H:%M")
+    span
+      = link_to '削除', chunk, method: :delete, data: { confirm: 'Are you sure?' }
